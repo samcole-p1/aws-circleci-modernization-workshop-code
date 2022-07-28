@@ -1,7 +1,7 @@
 terraform {
   required_version = ">= 0.13.5"
   backend "remote" {
-    organization = "[Your Org Name]"
+    organization = "samcole-training"
 
     workspaces {
       name = "arm-aws-ecs"
@@ -198,11 +198,11 @@ resource "aws_cloudwatch_log_group" "awslogs-app-arm" {
 
 # AWS Application Load Balancer Target Group
 resource "aws_alb_target_group" "alb" {
-  name     = "app-arm-v8"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.vpc.id
-  deregistration_delay  = 10
+  name                 = "app-arm-v8"
+  port                 = 80
+  protocol             = "HTTP"
+  vpc_id               = aws_vpc.vpc.id
+  deregistration_delay = 10
   health_check {
     path                = "/"
     healthy_threshold   = 5
