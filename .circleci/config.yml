@@ -63,6 +63,8 @@ jobs:
       - terraform/init:
           path: ./terraform/ecs
       - terraform/plan:
+          access_key: ${AWS_ACCESS_KEY_ID}
+          secret_access_key: ${AWS_SECRET_ACCESS_KEY}
           path: ./terraform/ecs
       - run:
           name: Terraform apply
